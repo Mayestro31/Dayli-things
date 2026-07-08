@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="240" height="300">
+  <defs>
+    <radialGradient id="skinGrad" cx="40%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFE08A"/>
+      <stop offset="100%" stop-color="#F5A800"/>
+    </radialGradient>
+    <radialGradient id="overallGrad" cx="40%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#FF8C5A"/>
+      <stop offset="100%" stop-color="#D94F10"/>
+    </radialGradient>
+    <radialGradient id="helmetGrad" cx="35%" cy="25%" r="60%">
+      <stop offset="0%" stop-color="#FFAA44"/>
+      <stop offset="100%" stop-color="#FF6B2B"/>
+    </radialGradient>
+    <radialGradient id="wingGrad" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#D6F0FF" stop-opacity="0.6"/>
+    </radialGradient>
+    <filter id="drop">
+      <feDropShadow dx="1" dy="4" stdDeviation="5" flood-color="#00000018"/>
+    </filter>
+    <filter id="wingBlur">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000010"/>
+    </filter>
+  </defs>
+
+  <!-- Ground shadow -->
+  <ellipse cx="120" cy="292" rx="52" ry="7" fill="#00000010"/>
+
+  <!-- ═══ WINGS ═══ -->
+  <ellipse cx="72" cy="130" rx="35" ry="20" fill="url(#wingGrad)" stroke="#A8DCEE" stroke-width="1.3" filter="url(#wingBlur)" transform="rotate(-32 72 130)"/>
+  <ellipse cx="66" cy="158" rx="24" ry="14" fill="url(#wingGrad)" stroke="#A8DCEE" stroke-width="1" filter="url(#wingBlur)" transform="rotate(-18 66 158)"/>
+  <ellipse cx="168" cy="130" rx="35" ry="20" fill="url(#wingGrad)" stroke="#A8DCEE" stroke-width="1.3" filter="url(#wingBlur)" transform="rotate(32 168 130)"/>
+  <ellipse cx="174" cy="158" rx="24" ry="14" fill="url(#wingGrad)" stroke="#A8DCEE" stroke-width="1" filter="url(#wingBlur)" transform="rotate(18 174 158)"/>
+
+  <!-- ═══ BODY – chubby rounded torso ═══ -->
+  <ellipse cx="120" cy="196" rx="46" ry="52" fill="url(#skinGrad)" stroke="#E09800" stroke-width="1.5" filter="url(#drop)"/>
+
+  <!-- Bee stripes on belly sides -->
+  <path d="M76 178 Q120 170 164 178" stroke="#2A1400" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <path d="M75 196 Q120 188 165 196" stroke="#2A1400" stroke-width="9" fill="none" stroke-linecap="round" opacity="0.75"/>
+  <path d="M77 214 Q120 207 163 214" stroke="#2A1400" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- ═══ OVERALL on top ═══ -->
+  <!-- Main bib -->
+  <rect x="88" y="166" width="64" height="56" rx="14" fill="url(#overallGrad)" filter="url(#drop)"/>
+  <!-- Bib shine -->
+  <ellipse cx="106" cy="178" rx="10" ry="6" fill="#FFFFFF" opacity="0.18" transform="rotate(-15 106 178)"/>
+  <!-- Pocket -->
+  <rect x="102" y="176" width="30" height="20" rx="6" fill="#C94A10" stroke="#A03508" stroke-width="1"/>
+  <rect x="104" y="178" width="26" height="16" rx="4" fill="#FF6B2B"/>
+  <text x="117" y="190" text-anchor="middle" font-size="8.5" font-family="Arial Rounded MT Bold, Arial" font-weight="900" fill="#FFE066" letter-spacing="0.5">DAYSI</text>
+  <!-- Straps -->
+  <rect x="93" y="156" width="14" height="32" rx="7" fill="#D94F10" stroke="#A03508" stroke-width="1"/>
+  <rect x="133" y="156" width="14" height="32" rx="7" fill="#D94F10" stroke="#A03508" stroke-width="1"/>
+  <!-- Strap buckles -->
+  <rect x="94" y="164" width="12" height="8" rx="3" fill="#FFD84D" stroke="#C9A000" stroke-width="1"/>
+  <rect x="134" y="164" width="12" height="8" rx="3" fill="#FFD84D" stroke="#C9A000" stroke-width="1"/>
+
+  <!-- Overall lower / legs -->
+  <rect x="84" y="214" width="30" height="52" rx="12" fill="url(#overallGrad)"/>
+  <rect x="126" y="214" width="30" height="52" rx="12" fill="url(#overallGrad)"/>
+  <!-- Leg seam -->
+  <line x1="99" y1="224" x2="99" y2="258" stroke="#A03508" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,3"/>
+  <line x1="141" y1="224" x2="141" y2="258" stroke="#A03508" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,3"/>
+
+  <!-- Tool belt -->
+  <rect x="80" y="212" width="80" height="11" rx="5" fill="#6B3F1E" stroke="#3D2210" stroke-width="1"/>
+  <rect x="112" y="210" width="16" height="14" rx="4" fill="#FFD84D" stroke="#B89000" stroke-width="1.2"/>
+  <rect x="115" y="213" width="10" height="8" rx="2" fill="none" stroke="#B89000" stroke-width="1.2"/>
+  <!-- Tiny tools on belt -->
+  <rect x="86" y="211" width="5" height="15" rx="2" fill="#888" stroke="#555" stroke-width="0.7"/>
+  <rect x="149" y="211" width="5" height="15" rx="2" fill="#888" stroke="#555" stroke-width="0.7"/>
+
+  <!-- ═══ NECK ═══ -->
+  <rect x="108" y="143" width="24" height="18" rx="8" fill="url(#skinGrad)" stroke="#E09800" stroke-width="1"/>
+
+  <!-- ═══ HEAD – oval, taller ═══ -->
+  <ellipse cx="120" cy="112" rx="38" ry="46" fill="url(#skinGrad)" stroke="#E09800" stroke-width="1.8" filter="url(#drop)"/>
+  <!-- Head side shine -->
+  <ellipse cx="104" cy="94" rx="11" ry="7" fill="#FFFFFF" opacity="0.22" transform="rotate(-25 104 94)"/>
+
+  <!-- ═══ HELMET ═══ -->
+  <!-- Brim -->
+  <ellipse cx="120" cy="80" rx="46" ry="10" fill="#FF6B2B" stroke="#C94A10" stroke-width="1.3"/>
+  <!-- Dome -->
+  <path d="M78 80 Q78 42 120 38 Q162 42 162 80 Z" fill="url(#helmetGrad)" stroke="#C94A10" stroke-width="1.5"/>
+  <!-- Dome highlights -->
+  <path d="M88 70 Q104 50 122 46" stroke="#FFFFFF" stroke-width="3.5" fill="none" stroke-linecap="round" opacity="0.28"/>
+  <!-- Helmet band -->
+  <path d="M80 75 Q120 69 160 75" stroke="#C94A10" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Badge on helmet -->
+  <rect x="104" y="54" width="32" height="16" rx="5" fill="#FFD84D" stroke="#C9A000" stroke-width="1.2"/>
+  <text x="120" y="66" text-anchor="middle" font-size="9" font-family="Arial Rounded MT Bold, Arial" font-weight="900" fill="#D94F10">🌼 DT</text>
+
+  <!-- ═══ ANTENNAE ═══ -->
+  <path d="M106 68 Q98 52 90 42" stroke="#2A1400" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <circle cx="89" cy="39" r="6" fill="#FF6B2B" stroke="#C94A10" stroke-width="1.3"/>
+  <circle cx="89" cy="39" r="2.5" fill="#FFE066"/>
+
+  <path d="M134 68 Q142 52 150 42" stroke="#2A1400" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <circle cx="151" cy="39" r="6" fill="#FF6B2B" stroke="#C94A10" stroke-width="1.3"/>
+  <circle cx="151" cy="39" r="2.5" fill="#FFE066"/>
+
+  <!-- ═══ EYES – natural oval ═══ -->
+  <!-- Left eye white -->
+  <ellipse cx="106" cy="110" rx="11" ry="13" fill="white" stroke="#2A1400" stroke-width="1.3"/>
+  <!-- Left iris -->
+  <ellipse cx="107" cy="112" rx="7" ry="8.5" fill="#3D2000"/>
+  <!-- Left pupil shine -->
+  <ellipse cx="109" cy="109" rx="2.5" ry="3" fill="white"/>
+  <ellipse cx="105" cy="115" rx="1.2" ry="1.5" fill="white" opacity="0.5"/>
+  <!-- Left eyelashes -->
+  <path d="M97 103 Q100 99 105 100" stroke="#2A1400" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M95 107 Q96 103 100 104" stroke="#2A1400" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- Right eye white -->
+  <ellipse cx="134" cy="110" rx="11" ry="13" fill="white" stroke="#2A1400" stroke-width="1.3"/>
+  <!-- Right iris -->
+  <ellipse cx="135" cy="112" rx="7" ry="8.5" fill="#3D2000"/>
+  <!-- Right pupil shine -->
+  <ellipse cx="137" cy="109" rx="2.5" ry="3" fill="white"/>
+  <ellipse cx="133" cy="115" rx="1.2" ry="1.5" fill="white" opacity="0.5"/>
+  <!-- Right eyelashes -->
+  <path d="M135 100 Q139 99 143 103" stroke="#2A1400" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M140 104 Q144 103 145 107" stroke="#2A1400" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- ═══ EYEBROWS ═══ -->
+  <path d="M96 97 Q106 92 116 95" stroke="#2A1400" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M124 95 Q134 92 144 97" stroke="#2A1400" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+  <!-- ═══ NOSE ═══ -->
+  <ellipse cx="120" cy="124" rx="5" ry="3.5" fill="#E09800" opacity="0.5"/>
+  <circle cx="117" cy="124" r="1.5" fill="#C07800" opacity="0.6"/>
+  <circle cx="123" cy="124" r="1.5" fill="#C07800" opacity="0.6"/>
+
+  <!-- ═══ SMILE ═══ -->
+  <path d="M107 133 Q120 145 133 133" stroke="#2A1400" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+  <!-- Teeth peek -->
+  <path d="M110 136 Q120 143 130 136" fill="white" stroke="none"/>
+  <!-- Lip line -->
+  <path d="M110 136 Q120 143 130 136" stroke="#2A1400" stroke-width="1" fill="none"/>
+  <!-- Cheeks -->
+  <ellipse cx="96" cy="128" rx="9" ry="6" fill="#FF9060" opacity="0.38"/>
+  <ellipse cx="144" cy="128" rx="9" ry="6" fill="#FF9060" opacity="0.38"/>
+
+  <!-- ═══ ARMS ═══ -->
+  <!-- Left arm – chubby -->
+  <path d="M80 175 Q58 168 44 155" stroke="url(#skinGrad)" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M80 175 Q58 168 44 155" stroke="#E09800" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <!-- Left hand -->
+  <ellipse cx="41" cy="152" rx="11" ry="10" fill="url(#skinGrad)" stroke="#E09800" stroke-width="1.2"/>
+  <!-- Hammer -->
+  <line x1="34" y1="140" x2="22" y2="112" stroke="#7A4F2A" stroke-width="5" stroke-linecap="round"/>
+  <rect x="12" y="105" width="26" height="12" rx="4" fill="#666" stroke="#333" stroke-width="1" transform="rotate(-20 12 105)"/>
+  <rect x="14" y="107" width="12" height="8" rx="2" fill="#888" transform="rotate(-20 14 107)"/>
+
+  <!-- Right arm – chubby, waving -->
+  <path d="M160 175 Q180 162 194 148" stroke="url(#skinGrad)" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M160 175 Q180 162 194 148" stroke="#E09800" stroke-width="1" fill="none" stroke-linecap="round"/>
+  <!-- Right hand -->
+  <ellipse cx="197" cy="145" rx="11" ry="10" fill="url(#skinGrad)" stroke="#E09800" stroke-width="1.2"/>
+  <!-- Fingers waving -->
+  <path d="M197 135 Q196 126 197 120" stroke="#E09800" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M204 137 Q207 129 208 123" stroke="#E09800" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M190 137 Q187 129 186 123" stroke="#E09800" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- ═══ BOOTS ═══ -->
+  <rect x="80" y="256" width="36" height="22" rx="10" fill="#5C3A1E" stroke="#3A2010" stroke-width="1.3"/>
+  <rect x="76" y="268" width="44" height="12" rx="6" fill="#3A2010"/>
+  <!-- laces -->
+  <line x1="88" y1="262" x2="108" y2="262" stroke="#FFD84D" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="88" y1="268" x2="108" y2="268" stroke="#FFD84D" stroke-width="1.8" stroke-linecap="round"/>
+
+  <rect x="124" y="256" width="36" height="22" rx="10" fill="#5C3A1E" stroke="#3A2010" stroke-width="1.3"/>
+  <rect x="120" y="268" width="44" height="12" rx="6" fill="#3A2010"/>
+  <line x1="132" y1="262" x2="152" y2="262" stroke="#FFD84D" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="132" y1="268" x2="152" y2="268" stroke="#FFD84D" stroke-width="1.8" stroke-linecap="round"/>
+
+</svg>

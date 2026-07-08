@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafa;
+  --foreground: #1a1a1a;
+
+  /* Farbpalette 1:1 aus dem DayliThings-Prototyp übernommen */
+  --color-brand-50: #fff0e8;
+  --color-brand-100: #ffe1d1;
+  --color-brand-200: #ffc7a8;
+  --color-brand-300: #ffa875;
+  --color-brand-400: #ff8c5a;
+  --color-brand-500: #ff6b2b;
+  --color-brand-600: #e55a1c;
+  --color-brand-700: #c2450f;
+  --color-brand-800: #9a350d;
+  --color-brand-900: #7a2a0c;
+
+  --color-honey: #ffd84d;
+  --color-success: #2e7d32;
+  --color-success-pale: #e8f5e9;
+  --color-gray-mid: #e0e0e0;
+  --color-gray-text: #9b9b9b;
+  --color-off-white: #fafafa;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+  --color-honey: var(--color-honey);
+  --color-success: var(--color-success);
+  --color-success-pale: var(--color-success-pale);
+  --color-gray-mid: var(--color-gray-mid);
+  --color-gray-text: var(--color-gray-text);
+  --color-off-white: var(--color-off-white);
+  --font-sans: var(--font-dm-sans), var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: var(--color-brand-200);
+}

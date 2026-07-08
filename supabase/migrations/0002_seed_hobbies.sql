@@ -1,0 +1,27 @@
+-- Seed-Daten für Alltag- und Hobby-Präferenzen
+insert into public.hobbies (name, category, icon) values
+  ('Kochen & Backen', 'alltag', '🍳'),
+  ('Einkaufen', 'alltag', '🛒'),
+  ('Spazierengehen', 'alltag', '🚶'),
+  ('Haustiere', 'alltag', '🐾'),
+  ('Nachbarschaftshilfe', 'alltag', '🤝'),
+  ('Gemeinsam pendeln', 'alltag', '🚇'),
+  ('Kaffee & Café-Besuche', 'alltag', '☕'),
+  ('Kinder & Familie', 'alltag', '👨‍👩‍👧'),
+  ('Gartenarbeit', 'alltag', '🌱'),
+  ('DIY & Heimwerken', 'alltag', '🔧'),
+  ('Sport & Fitness', 'hobby', '🏋️'),
+  ('Fahrradfahren', 'hobby', '🚴'),
+  ('Wandern', 'hobby', '🥾'),
+  ('Fotografie', 'hobby', '📷'),
+  ('Musik machen', 'hobby', '🎸'),
+  ('Lesen', 'hobby', '📚'),
+  ('Brettspiele', 'hobby', '🎲'),
+  ('Videospiele', 'hobby', '🎮'),
+  ('Malen & Zeichnen', 'hobby', '🎨'),
+  ('Reisen', 'hobby', '✈️'),
+  ('Tanzen', 'hobby', '💃'),
+  ('Yoga & Meditation', 'hobby', '🧘'),
+  ('Kino & Serien', 'hobby', '🎬'),
+  ('Handwerk & Basteln', 'hobby', '🧵')
+on conflict (name) do nothing;

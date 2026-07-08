@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Read(//Users/lukas/**)",
+      "Read(//opt/homebrew/**)",
+      "Bash(command -v brew)",
+      "Bash(brew --version)",
+      "Bash(command -v docker)",
+      "Bash(command -v pnpm)",
+      "Bash(command -v yarn)",
+      "Bash(command -v python3)",
+      "Bash(sw_vers)",
+      "Bash(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh)",
+      "Bash(bash)",
+      "Bash(touch /usr/local/bin/.testwrite)",
+      "Bash(rm /usr/local/bin/.testwrite)",
+      "Bash(mkdir -p \"/Users/lukas/Desktop/dayli-things/src/app/\\(app\\)/discover\" \"/Users/lukas/Desktop/dayli-things/src/app/\\(app\\)/chat\" \"/Users/lukas/Desktop/dayli-things/src/app/\\(app\\)/profile/[id]\" \"/Users/lukas/Desktop/dayli-things/src/app/\\(app\\)/premium\")",
+      "Bash(mkdir -p \"/Users/lukas/Desktop/dayli-things/src/app/\\(app\\)/chat/[conversationId]\" /Users/lukas/Desktop/dayli-things/src/components/chat)",
+      "Bash(kill -9 28054 28055)",
+      "Bash(ps -p 22710 -p 28056 -o pid,ppid,command)",
+      "Bash(kill -9 28056)",
+      "Bash(ps -p 28056 -o pid,ppid,command)",
+      "Bash(ps -p 28087 -o pid,ppid,command)",
+      "Bash(kill -9 28085 28086 28087 28090)",
+      "Skill(code-review)",
+      "Skill(code-review:*)",
+      "Bash(grep -E \"\\(^[^/]+/middleware|^[^/]+/proxy|middleware$|proxy$\\)\")",
+      "Bash(curl -s -D - -o /dev/null http://localhost:3000/ -c /tmp/cookies_dayli.txt)",
+      "Bash(cat > *)",
+      "Bash(python3 -)",
+      "Bash(python3 gen_demo_users.py)",
+      "Bash(split -l 100 /Users/lukas/Desktop/dayli-things/supabase/migrations/0004_demo_users.sql /private/tmp/claude-501/-Users-lukas-Desktop-dayli-things/84d8336b-6708-42ea-9bfe-d68c60569074/scratchpad/part_)",
+      "Bash(git --version)",
+      "Bash(gh auth *)",
+      "Bash(vercel --version)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}
