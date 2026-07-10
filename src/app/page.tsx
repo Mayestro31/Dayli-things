@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Crown, MapPin, MessageCircle, Sparkles, Star, UserCircle } from "lucide-react";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { Daysi } from "@/components/mascot/daysi";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -97,9 +98,7 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="border-t border-brand-100 bg-white py-6 text-center text-sm text-brand-500">
-        © {new Date().getFullYear()} DayliThings – mit 🧡 von Daysi
-      </footer>
+      <SiteFooter />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const PUBLIC_PATHS = ["/", "/login", "/register", "/auth"];
+const PUBLIC_PATHS = ["/", "/login", "/register", "/auth", "/impressum", "/datenschutz"];
 
 function isPublicPath(pathname: string) {
   return (
