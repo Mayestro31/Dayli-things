@@ -2,6 +2,7 @@
 
 import { useActionState, useState, useTransition } from "react";
 import { useFormStatus } from "react-dom";
+import Link from "next/link";
 import {
   createCustomHobbyAction,
   savePreferencesAction,
@@ -11,6 +12,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import type { Hobby, HobbyCategory } from "@/types/database.types";
+
+const FREE_LIMIT_PER_CATEGORY = 3;
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -24,21 +27,26 @@ function SubmitButton() {
 function HobbyChip({
   hobby,
   selected,
+  disabled,
   onToggle,
 }: {
   hobby: Hobby;
   selected: boolean;
+  disabled?: boolean;
   onToggle: () => void;
 }) {
   return (
     <button
       type="button"
       onClick={onToggle}
+      disabled={disabled}
       className={cn(
         "flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-sm font-medium transition-colors",
         selected
           ? "border-brand-500 bg-brand-500 text-white"
-          : "border-brand-200 bg-white text-brand-700 hover:bg-brand-50"
+          : disabled
+            ? "cursor-not-allowed border-gray-mid bg-gray-50 text-gray-text opacity-60"
+            : "border-brand-200 bg-white text-brand-700 hover:bg-brand-50"
       )}
     >
       <span>{hobby.icon}</span>
@@ -54,6 +62,7 @@ function HobbyCategorySection({
   placeholder,
   hobbies,
   selected,
+  isPremium,
   onToggle,
   onCreated,
 }: {
@@ -63,6 +72,7 @@ function HobbyCategorySection({
   placeholder: string;
   hobbies: Hobby[];
   selected: Set<string>;
+  isPremium: boolean;
   onToggle: (id: string) => void;
   onCreated: (hobby: Hobby) => void;
 }) {
@@ -70,7 +80,16 @@ function HobbyCategorySection({
   const [error, setError] = useState("");
   const [isPending, startTransition] = useTransition();
 
+  const selectedCount = hobbies.filter((h) => selected.has(h.id)).length;
+  const atLimit = !isPremium && selectedCount >= FREE_LIMIT_PER_CATEGORY;
+
+  function handleToggle(hobby: Hobby) {
+    if (!selected.has(hobby.id) && atLimit) return;
+    onToggle(hobby.id);
+  }
+
   function submit() {
+    if (atLimit) return;
     const name = draft.trim();
     if (!name) return;
     setError("");
@@ -97,7 +116,8 @@ function HobbyCategorySection({
             key={hobby.id}
             hobby={hobby}
             selected={selected.has(hobby.id)}
-            onToggle={() => onToggle(hobby.id)}
+            disabled={!selected.has(hobby.id) && atLimit}
+            onToggle={() => handleToggle(hobby)}
           />
         ))}
       </div>
@@ -114,12 +134,31 @@ function HobbyCategorySection({
           placeholder={placeholder}
           maxLength={40}
           className="h-10"
+          disabled={atLimit}
         />
-        <Button type="button" variant="outline" onClick={submit} disabled={isPending || !draft.trim()}>
+        <Button
+          type="button"
+          variant="outline"
+          onClick={submit}
+          disabled={isPending || !draft.trim() || atLimit}
+        >
           {isPending ? "…" : "Hinzufügen"}
         </Button>
       </div>
       {error && <p className="mt-1.5 text-xs text-red-600">{error}</p>}
+      {!isPremium &&
+        (atLimit ? (
+          <p className="mt-2 text-xs text-brand-600">
+            Kostenlos sind {FREE_LIMIT_PER_CATEGORY} {title}-Präferenzen möglich.{" "}
+            <Link href="/premium" className="font-semibold underline underline-offset-2">
+              Mit Premium unbegrenzt wählen →
+            </Link>
+          </p>
+        ) : (
+          <p className="mt-2 text-xs text-gray-text">
+            {selectedCount}/{FREE_LIMIT_PER_CATEGORY} kostenlos ausgewählt
+          </p>
+        ))}
     </div>
   );
 }
@@ -127,12 +166,12 @@ function HobbyCategorySection({
 export function PreferencesForm({
   alltagHobbies,
   freizeitHobbies,
-  sonstigeHobbies,
+  isPremium,
   initialSelected,
 }: {
   alltagHobbies: Hobby[];
   freizeitHobbies: Hobby[];
-  sonstigeHobbies: Hobby[];
+  isPremium: boolean;
   initialSelected: string[];
 }) {
   const [state, formAction] = useActionState<PreferencesFormState, FormData>(
@@ -142,7 +181,6 @@ export function PreferencesForm({
   const [selected, setSelected] = useState<Set<string>>(new Set(initialSelected));
   const [alltagList, setAlltagList] = useState<Hobby[]>(alltagHobbies);
   const [hobbyList, setHobbyList] = useState<Hobby[]>(freizeitHobbies);
-  const [sonstigeList, setSonstigeList] = useState<Hobby[]>(sonstigeHobbies);
 
   function toggle(id: string) {
     setSelected((prev) => {
@@ -174,6 +212,7 @@ export function PreferencesForm({
         placeholder="Eigene Alltagshilfe, z. B. Fenster putzen"
         hobbies={alltagList}
         selected={selected}
+        isPremium={isPremium}
         onToggle={toggle}
         onCreated={(hobby) => addToList(setAlltagList, hobby)}
       />
@@ -185,19 +224,9 @@ export function PreferencesForm({
         placeholder="Eigenes Hobby, z. B. Klettern"
         hobbies={hobbyList}
         selected={selected}
+        isPremium={isPremium}
         onToggle={toggle}
         onCreated={(hobby) => addToList(setHobbyList, hobby)}
-      />
-
-      <HobbyCategorySection
-        category="sonstige"
-        title="Sonstige"
-        hint="Passt in keine der beiden Kategorien? Trag es hier ein."
-        placeholder="Eigenes Stichwort, z. B. Angeln"
-        hobbies={sonstigeList}
-        selected={selected}
-        onToggle={toggle}
-        onCreated={(hobby) => addToList(setSonstigeList, hobby)}
       />
 
       <p className="text-xs text-brand-500">{selected.size} ausgewählt</p>

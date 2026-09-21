@@ -1,4 +1,4 @@
-export type HobbyCategory = "alltag" | "hobby" | "sonstige";
+export type HobbyCategory = "alltag" | "hobby";
 export type PremiumPlan = "monthly" | "yearly";
 
 export interface Database {

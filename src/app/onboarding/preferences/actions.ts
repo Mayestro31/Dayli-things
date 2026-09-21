@@ -55,6 +55,31 @@ export async function savePreferencesAction(
     return { error: "Bitte wähle mindestens eine Präferenz aus." };
   }
 
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("is_premium")
+    .eq("id", user.id)
+    .single();
+
+  if (!profile?.is_premium) {
+    const { data: chosenHobbies } = await supabase
+      .from("hobbies")
+      .select("id, category")
+      .in("id", hobbyIds);
+
+    const counts = { alltag: 0, hobby: 0 };
+    for (const hobby of chosenHobbies ?? []) {
+      counts[hobby.category as "alltag" | "hobby"]++;
+    }
+
+    if (counts.alltag > 3 || counts.hobby > 3) {
+      return {
+        error:
+          "Kostenlos sind maximal 3 Alltag- und 3 Hobby-Präferenzen möglich. Für mehr brauchst du DayliThings Premium.",
+      };
+    }
+  }
+
   const { error: deleteError } = await supabase
     .from("profile_preferences")
     .delete()

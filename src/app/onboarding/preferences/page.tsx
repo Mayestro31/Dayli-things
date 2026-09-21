@@ -14,14 +14,14 @@ export default async function OnboardingPreferencesPage() {
     redirect("/login");
   }
 
-  const [{ data: hobbies }, { data: existing }] = await Promise.all([
+  const [{ data: hobbies }, { data: existing }, { data: profile }] = await Promise.all([
     supabase.from("hobbies").select("*").order("name"),
     supabase.from("profile_preferences").select("hobby_id").eq("profile_id", user.id),
+    supabase.from("profiles").select("is_premium").eq("id", user.id).single(),
   ]);
 
   const alltagHobbies = (hobbies ?? []).filter((h) => h.category === "alltag");
   const freizeitHobbies = (hobbies ?? []).filter((h) => h.category === "hobby");
-  const sonstigeHobbies = (hobbies ?? []).filter((h) => h.category === "sonstige");
   const initialSelected = (existing ?? []).map((row) => row.hobby_id);
 
   return (
@@ -33,7 +33,7 @@ export default async function OnboardingPreferencesPage() {
       <PreferencesForm
         alltagHobbies={alltagHobbies}
         freizeitHobbies={freizeitHobbies}
-        sonstigeHobbies={sonstigeHobbies}
+        isPremium={profile?.is_premium ?? false}
         initialSelected={initialSelected}
       />
     </AuthShell>

@@ -42,7 +42,6 @@ type Mode = "suchen" | "anbieten";
 const categoryTabs: { key: HobbyCategory; label: string }[] = [
   { key: "alltag", label: "Alltagshilfen" },
   { key: "hobby", label: "Hobbys" },
-  { key: "sonstige", label: "Sonstige" },
 ];
 
 export function DiscoverExplorer({
