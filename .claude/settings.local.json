@@ -32,7 +32,8 @@
       "Bash(curl -sD - -o /tmp/resp3.html https://dayli-things-k9no0fj31-daylithings.vercel.app)",
       "Bash(curl -s -X PATCH https://api.vercel.com/v9/projects/dayli-things?teamId=team_baWxIIXyMkdFXSUbTQMnPJzb -H 'Authorization: Bearer __CMDSUB_OUTPUT__' -H 'Content-Type: application/json' -d '{\"framework\": \"nextjs\"}' -o /tmp/proj_patch2.json -w 'HTTP:%{http_code}\\\\n')",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

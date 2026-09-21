@@ -73,5 +73,7 @@ export async function registerAction(
     return { checkEmail: true };
   }
 
-  redirect("/register/verify-phone");
+  // SMS-Verifizierung ist vorübergehend deaktiviert (kein SMS-Anbieter konfiguriert).
+  // Zum Reaktivieren: redirect("/register/verify-phone") statt "/onboarding/profile".
+  redirect("/onboarding/profile");
 }
