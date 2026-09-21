@@ -53,18 +53,6 @@ export function RegisterForm() {
         <Input id="email" name="email" type="email" autoComplete="email" required placeholder="du@beispiel.de" />
       </div>
       <div>
-        <Label htmlFor="phone">Handynummer</Label>
-        <Input
-          id="phone"
-          name="phone"
-          type="tel"
-          autoComplete="tel"
-          required
-          placeholder="0170 1234567"
-        />
-        <p className="mt-1 text-xs text-brand-500">Zum Verifizieren per SMS-Code.</p>
-      </div>
-      <div>
         <Label htmlFor="password">Passwort</Label>
         <Input
           id="password"
