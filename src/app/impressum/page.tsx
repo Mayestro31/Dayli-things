@@ -1,6 +1,5 @@
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata = {
   title: "Impressum – DayliThings",
@@ -13,53 +12,31 @@ export default function ImpressumPage() {
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12 sm:px-6">
         <h1 className="mb-6 text-3xl font-extrabold text-foreground">Impressum</h1>
 
-        <Card className="mb-6 border-brand-200 bg-brand-50">
-          <CardContent className="p-4 text-sm text-brand-800">
-            Diese Seite enthält noch Platzhalter (in eckigen Klammern). Bitte durch die
-            tatsächlichen Angaben ersetzen, bevor die Website öffentlich live geht – ein
-            Impressum ist in Deutschland gemäß § 5 TMG Pflicht.
-          </CardContent>
-        </Card>
-
         <div className="space-y-6 text-sm leading-relaxed text-gray-text">
           <section>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
             <p>
-              [Vollständiger Name / Firmenname]
+              Lukas Mayer
               <br />
-              [Straße und Hausnummer]
+              Dockweilerstraße 14
               <br />
-              [Postleitzahl und Ort]
+              54550 Daun
               <br />
-              [Land]
+              Deutschland
             </p>
           </section>
 
           <section>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Kontakt</h2>
-            <p>
-              E-Mail: [deine@email.de]
-              <br />
-              Telefon: [optional, deine Telefonnummer]
-            </p>
+            <p>E-Mail: Lukimayer@web.de</p>
           </section>
 
           <section>
             <h2 className="mb-2 text-lg font-semibold text-foreground">Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
             <p>
-              [Vollständiger Name]
+              Lukas Mayer
               <br />
-              [Anschrift wie oben]
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-2 text-lg font-semibold text-foreground">
-              Umsatzsteuer-Identifikationsnummer
-            </h2>
-            <p>
-              [Falls vorhanden: USt-IdNr. gemäß § 27 a Umsatzsteuergesetz. Falls nicht
-              vorhanden, diesen Abschnitt entfernen.]
+              Dockweilerstraße 14, 54550 Daun
             </p>
           </section>
 

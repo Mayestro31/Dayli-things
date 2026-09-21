@@ -1,6 +1,5 @@
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { Card, CardContent } from "@/components/ui/card";
 
 export const metadata = {
   title: "Datenschutz – DayliThings",
@@ -13,25 +12,17 @@ export default function DatenschutzPage() {
       <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-12 sm:px-6">
         <h1 className="mb-6 text-3xl font-extrabold text-foreground">Datenschutzerklärung</h1>
 
-        <Card className="mb-6 border-brand-200 bg-brand-50">
-          <CardContent className="p-4 text-sm text-brand-800">
-            Diese Seite enthält noch Platzhalter (in eckigen Klammern), z. B. für den
-            Verantwortlichen. Bitte vor dem Live-Gang ausfüllen und prüfen, ob alle genannten
-            Dienste (z. B. SMS-Verifizierung) tatsächlich aktiv sind.
-          </CardContent>
-        </Card>
-
         <div className="space-y-8 text-sm leading-relaxed text-gray-text">
           <section>
             <h2 className="mb-2 text-lg font-semibold text-foreground">1. Verantwortlicher</h2>
             <p>
-              [Vollständiger Name / Firmenname]
+              Lukas Mayer
               <br />
-              [Straße und Hausnummer]
+              Dockweilerstraße 14
               <br />
-              [Postleitzahl und Ort]
+              54550 Daun
               <br />
-              E-Mail: [deine@email.de]
+              E-Mail: Lukimayer@web.de
             </p>
           </section>
 
@@ -41,10 +32,12 @@ export default function DatenschutzPage() {
             </h2>
             <p>
               Bei der Registrierung erheben wir Vorname, Nachname, E-Mail-Adresse, Handynummer
-              und ein Passwort. Die Handynummer wird per SMS-Code verifiziert; hierfür wird sie
-              an unseren SMS-Versanddienstleister (z. B. Twilio) übermittelt. Passwörter werden
-              ausschließlich verschlüsselt (gehasht) gespeichert. Rechtsgrundlage ist die
-              Erfüllung des Nutzungsvertrags (Art. 6 Abs. 1 lit. b DSGVO).
+              und ein Passwort. Die Verifizierung der Handynummer per SMS-Code ist vorgesehen,
+              kann während der Testphase aber übersprungen werden. Sobald sie aktiv ist, wird die
+              Handynummer zu diesem Zweck an unseren SMS-Versanddienstleister übermittelt.
+              Passwörter werden ausschließlich verschlüsselt (gehasht) gespeichert.
+              Rechtsgrundlage ist die Erfüllung des Nutzungsvertrags (Art. 6 Abs. 1 lit. b
+              DSGVO).
             </p>
           </section>
 
@@ -133,9 +126,7 @@ export default function DatenschutzPage() {
 
           <section>
             <h2 className="mb-2 text-lg font-semibold text-foreground">10. Kontakt</h2>
-            <p>
-              Bei Fragen zum Datenschutz wende dich bitte an: [deine@email.de]
-            </p>
+            <p>Bei Fragen zum Datenschutz wende dich bitte an: Lukimayer@web.de</p>
           </section>
         </div>
       </main>
