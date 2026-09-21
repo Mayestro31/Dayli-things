@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { Fragment, useEffect, useMemo, useState, useTransition } from "react";
 import { Loader2, MapPin, Plus, Search } from "lucide-react";
 import {
   geocodeLocationAction,
@@ -17,6 +17,7 @@ import { Avatar } from "@/components/ui/avatar";
 import { Daysi } from "@/components/mascot/daysi";
 import { CreateListingForm } from "@/components/discover/create-listing-form";
 import { ListingCard, MyListingCard, type ListingCardData, type MyListingData } from "@/components/discover/listing-card";
+import { AdCard } from "@/components/ads/ad-card";
 import { cn, formatDistance } from "@/lib/utils";
 import type { Hobby, HobbyCategory } from "@/types/database.types";
 
@@ -50,12 +51,14 @@ export function DiscoverExplorer({
   initialListings,
   myListings,
   defaultCity,
+  viewerIsPremium,
 }: {
   initialProfiles: DiscoverProfile[];
   hobbies: Hobby[];
   initialListings: DiscoverListing[];
   myListings: MyListing[];
   defaultCity: string | null;
+  viewerIsPremium: boolean;
 }) {
   const [mode, setMode] = useState<Mode>("suchen");
   const [radius, setRadius] = useState(25);
@@ -375,8 +378,11 @@ export function DiscoverExplorer({
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {filteredProfiles.map((profile) => (
-                <ProfileCard key={profile.id} profile={profile} />
+              {filteredProfiles.map((profile, i) => (
+                <Fragment key={profile.id}>
+                  <ProfileCard profile={profile} />
+                  {!viewerIsPremium && i % 3 === 2 && <AdCard index={i} />}
+                </Fragment>
               ))}
             </div>
           )}

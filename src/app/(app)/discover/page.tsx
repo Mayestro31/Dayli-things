@@ -16,7 +16,7 @@ export default async function DiscoverPage() {
 
   const { data: me } = await supabase
     .from("profiles")
-    .select("lat, lng, city")
+    .select("lat, lng, city, is_premium")
     .eq("id", user.id)
     .single();
 
@@ -70,6 +70,7 @@ export default async function DiscoverPage() {
         initialListings={listings}
         myListings={myListingsMapped}
         defaultCity={me.city}
+        viewerIsPremium={me.is_premium}
       />
     </div>
   );
